@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ResumenDelDia from "../../components/ResumenDelDia";
+import ProtectedRoute from "../../layouts/ProtectedRoute";
+---
+
+<Layout>
+  <ProtectedRoute client:load>
+    <ResumenDelDia client:load />
+  </ProtectedRoute>
+</Layout>
