@@ -291,7 +291,9 @@ export default function ResumenDelDia() {
 
             <p className="text-right font-bold mt-2">
               Total Ventas:{" "}
-              <span className="font-bold text-green-600">{totalVentas}</span>
+              <span className="font-bold text-green-600">
+                Bs {totalVentas.toFixed(2)}
+              </span>
             </p>
           </section>
 
@@ -346,7 +348,9 @@ export default function ResumenDelDia() {
 
             <p className="text-right font-bold mt-2">
               Total Gastos:{" "}
-              <span className="text-red-600 font-bold">-{totalGastos}</span>
+              <span className="text-red-600 font-bold">
+                Bs -{totalGastos.toFixed(2)}
+              </span>
             </p>
           </section>
 
@@ -354,8 +358,8 @@ export default function ResumenDelDia() {
           <section
             className={`text-right text-xl mt-4 ${estilosNegativos(totalDia)}`}
           >
-            <span className="font-bold text-black">Total del Día:</span>{" "}
-            {totalDia}
+            <span className="font-bold text-black">Total del Día:</span> Bs{" "}
+            {totalDia.toFixed(2)}
           </section>
         </>
       }
