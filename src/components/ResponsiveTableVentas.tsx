@@ -59,6 +59,11 @@ const ResponsiveTableVentas: React.FC<ResponsiveTableProps> = ({
     }
   };
 
+  const precioTotalPipas = (row: RowData) => {
+    const total = row.precio_unitario * row.pipas;
+    return total.toFixed(2);
+  };
+
   return (
     <>
       <div className="overflow-x-auto w-full">
@@ -73,6 +78,9 @@ const ResponsiveTableVentas: React.FC<ResponsiveTableProps> = ({
               </th>
               <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
                 Precio U.
+              </th>
+              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                Precio Final
               </th>
               <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
                 Acción
@@ -97,6 +105,9 @@ const ResponsiveTableVentas: React.FC<ResponsiveTableProps> = ({
                   </td>
                   <td className="px-4 py-3 text-sm text-green-600">
                     Bs {row.precio_unitario.toFixed(2)}
+                  </td>
+                  <td className="px-4 py-3 text-sm text-green-600">
+                    Bs {precioTotalPipas(row)}
                   </td>
                   <td className="px-4 py-3 text-sm flex gap-2">
                     <button
