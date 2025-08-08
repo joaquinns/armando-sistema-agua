@@ -66,7 +66,6 @@ export default function ResumenDelDia() {
       .from("ventas")
       .select("*")
       .eq("fecha", fecha)
-      .range(from, to)
       .order("id", { ascending: false });
 
     const { data: gastosData } = await supabase
@@ -273,7 +272,8 @@ export default function ResumenDelDia() {
             <div className="flex justify-end gap-2 pt-8 pb-6">
               <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                disabled={currentPage === 1}
+                disabled={true}
+                //disabled={currentPage === 1}
                 className="px-3 py-1 border rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-50"
               >
                 Anterior
@@ -284,7 +284,8 @@ export default function ResumenDelDia() {
               <button
                 onClick={() => setCurrentPage((prev) => prev + 1)}
                 className="px-3 py-1 border rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-50"
-                disabled={currentPage >= totalPages!}
+                disabled={true}
+                //disabled={currentPage >= totalPages!}
               >
                 Siguiente
               </button>
