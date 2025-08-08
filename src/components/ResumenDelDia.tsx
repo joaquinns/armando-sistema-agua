@@ -46,6 +46,7 @@ export default function ResumenDelDia() {
   );
 
   const totalGastos = gastos.reduce((acc, g) => acc + g.monto, 0);
+  const totalPipas = ventas.reduce((acc, v) => acc + v.pipas, 0);
   const totalDia = totalVentas - totalGastos;
 
   const fetchData = useCallback(async () => {
@@ -289,6 +290,10 @@ export default function ResumenDelDia() {
               </button>
             </div>
 
+            <p className="text-right font-bold mt-2">
+              Total Pipas:{" "}
+              <span className="font-bold text-gray-800">{totalPipas}</span>
+            </p>
             <p className="text-right font-bold mt-2">
               Total Ventas:{" "}
               <span className="font-bold text-green-600">
