@@ -17,6 +17,7 @@ interface RowData {
 }
 
 interface ResponsiveTableProps {
+  isViajeCerrado: boolean;
   data: RowData[];
   onEdit: (data: RowData) => void;
   onDelete: (id: string) => void;
@@ -25,6 +26,7 @@ interface ResponsiveTableProps {
 }
 
 const ResponsiveTableVentas: React.FC<ResponsiveTableProps> = ({
+  isViajeCerrado,
   data,
   onEdit,
   onDelete,
@@ -46,6 +48,7 @@ const ResponsiveTableVentas: React.FC<ResponsiveTableProps> = ({
   };
 
   const handleEdit = () => {
+    if (isViajeCerrado) return;
     if (selectedVenta) {
       onEdit(selectedVenta);
       setIsEditOpen(false);
@@ -53,6 +56,7 @@ const ResponsiveTableVentas: React.FC<ResponsiveTableProps> = ({
   };
 
   const handleDelete = () => {
+    if (isViajeCerrado) return;
     if (selectedVenta) {
       onDelete(selectedVenta.id);
       setIsDeleteOpen(false);
@@ -111,12 +115,14 @@ const ResponsiveTableVentas: React.FC<ResponsiveTableProps> = ({
                   </td>
                   <td className="px-4 py-3 text-sm flex gap-2">
                     <button
+                      disabled={isViajeCerrado}
                       onClick={() => openEditModal(row)}
                       className="text-blue-600 hover:underline"
                     >
                       Editar
                     </button>
                     <button
+                      disabled={isViajeCerrado}
                       onClick={() => openDeleteModal(row)}
                       className="text-red-600 hover:underline"
                     >
